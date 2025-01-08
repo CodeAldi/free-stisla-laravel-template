@@ -57,7 +57,7 @@
 
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
-        <li class="menu-item active">
+        <li class="menu-item {{ (Request::RouteIs('home')) ? 'active' : '' }}">
             <a href="{{ route('home') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home"></i>
                 <div>Home</div>
@@ -67,8 +67,8 @@
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Tata Usaha</span>
         </li>
-        <li class="menu-item">
-            <a href="{{ route('home') }}" class="menu-link">
+        <li class="menu-item {{ (Request::RouteIs('manajemenAset.*')) ? 'active' : '' }}">
+            <a href="{{ route('manajemenAset.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-circle"></i>
                 <div>Aset</div>
             </a>

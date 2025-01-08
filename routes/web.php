@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AsetController;
 use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -22,4 +23,7 @@ Route::controller(AuthenticateController::class)->group(function(){
     Route::get('/forgot-password','renderForgotPasswordView')->middleware('guest')->name('forgotPassword');
     Route::post('/authenticate','authenticate')->middleware('guest')->name('authenticate');
     Route::get('/logout','logout')->middleware('auth')->name('logout');
+});
+Route::controller(AsetController::class)->middleware(['auth','role:tata usaha'])->group(function(){
+    Route::get('/manajemen-aset/index','index')->name('manajemenAset.index');
 });
