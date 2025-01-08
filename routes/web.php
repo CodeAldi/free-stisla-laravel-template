@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthenticateController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
+Route::get('/',[HomeController::class,'index'])->middleware('auth')->name('home');
+Route::controller(AuthenticateController::class)->group(function(){
+    Route::get('/login','renderLoginView')->middleware('guest')->name('login');
+    Route::get('/register','renderRegisterView')->middleware('guest')->name('register');
+    Route::get('/forgot-password','renderForgotPasswordView')->middleware('guest')->name('forgotPassword');
+    Route::post('/authenticate','authenticate')->middleware('guest')->name('authenticate');
+    Route::get('/logout','logout')->middleware('auth')->name('logout');
 });
