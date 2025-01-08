@@ -1,9 +1,8 @@
 
 # stisla - laravel 10
 
-This is a personal template project for the stisla free tier template. Open to anyone who wants to use.
-
-
+This is a personal template project for the `stisla free tier template` in laravel 10.
+feel free to anyone who wants to use.
 
 ## Acknowledgements
 
